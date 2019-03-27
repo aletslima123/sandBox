@@ -1,45 +1,33 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from "@angular/core";
+import { ServerService } from "./server.service";
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+  providers: [ServerService]
 })
-export class AppComponent {
-  serverElements = [
-    {type: 'server', name: 'Testserver', content: 'Just a test!'},
-    {type: 'blueprint', name: 'TestBlueprint', content: 'Fuck the system!'}
-  ];
+export class AppComponent implements OnInit {
+  serverElements: { type: string; name: string; content: string }[] = [];
+
+  constructor(private serverService: ServerService) {}
+
+  ngOnInit() {
+    this.serverElements = this.serverService.serverElements;
+  }
 
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
 
-  onServerAdded(serverData: {serverName: string, serverContent: string}) {
-    this.serverElements.push({
-      type: 'server',
-      name: serverData.serverName,
-      content: serverData.serverContent
-    });
-  }
-
-  onBlueprintAdded(bluePrintData: {serverName: string, serverContent: string}) {
-    this.serverElements.push({
-      type: 'blueprint',
-      name: bluePrintData.serverName,
-      content: bluePrintData.serverContent
-    });
-  }
-
   onChange() {
-    this.serverElements[0].name = 'Satanas do caralho';
+    this.serverElements[0].name = "Satanas do caralho";
   }
 
   onDestroy() {
     this.serverElements.splice(0, 1);
   }
 
-  onIntervalFired(number: number){
-    if(number % 2 === 0) {
+  onIntervalFired(number: number) {
+    if (number % 2 === 0) {
       this.evenNumbers.push(number);
     } else {
       this.oddNumbers.push(number);
