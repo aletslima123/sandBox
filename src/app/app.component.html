@@ -1,5 +1,5 @@
 <div class="container">
-  <app-cockpit></app-cockpit>
+  <!-- <app-cockpit></app-cockpit>
   <hr />
   <div class="row">
     <div class="col-xs-12">
@@ -33,7 +33,15 @@
   <app-even
     *ngFor="let evenNumber of evenNumbers"
     [number]="evenNumber"
-  ></app-even>
+  ></app-even> -->
 
   <!-- <p appBetaHighlight>Test custom directives</p> -->
+  <app-new-account (accountAdded)="onAccountAdded($event)"></app-new-account>
+  <hr />
+  <app-account
+    *ngFor="let acc of accounts; let i = index"
+    [account]="acc"
+    [id]="i"
+    (statusChanged)="onStatusChanged($event)"
+  ></app-account>
 </div>
