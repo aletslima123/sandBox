@@ -24,19 +24,21 @@
     </div>
   </div>
 
-  <app-game-conrtol
-    (intervalFired)="onIntervalFired($event)"
-  ></app-game-conrtol>
+  <app-game-conrtol (intervalFired)="onIntervalFired($event)"></app-game-conrtol>
 
-  <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
+  <div>
+    <h2>Odd numbers</h2>
+    <app-odd *ngFor="let oddNumber of oddNumbers"
+    [number]="oddNumber"></app-odd>
+  </div>
 
-  <app-even
-    *ngFor="let evenNumber of evenNumbers"
-    [number]="evenNumber"
-  ></app-even> -->
+  <div>
+    <h2>Even numbers</h2>
+    <app-even *ngFor="let evenNumber of evenNumbers"
+    [number]="evenNumber"></app-even>
+  </div> -->
 
-  <!-- <p appBetaHighlight>Test custom directives</p> -->
-  <app-new-account (accountAdded)="onAccountAdded($event)"></app-new-account>
+  <app-new-account></app-new-account>
   <hr />
   <app-account
     *ngFor="let acc of accounts; let i = index"
@@ -44,4 +46,5 @@
     [id]="i"
     (statusChanged)="onStatusChanged($event)"
   ></app-account>
+
 </div>

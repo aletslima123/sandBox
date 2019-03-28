@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ServerService } from "./server.service";
+import { AccountService } from "./services/account.service";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -8,37 +9,21 @@ import { ServerService } from "./server.service";
 export class AppComponent implements OnInit {
   serverElements: { type: string; name: string; content: string }[] = [];
 
-  accounts = [
-    {
-      name: "Master Account",
-      status: "active"
-    },
-    {
-      name: "Testaccount",
-      status: "inactive"
-    },
-    {
-      name: "Hidden Account",
-      status: "unknown"
-    }
-  ];
-
-  onAccountAdded(newAccount: { name: string; status: string }) {
-    this.accounts.push(newAccount);
-  }
-
-  onStatusChanged(updateInfo: { id: number; newStatus: string }) {
-    this.accounts[updateInfo.id].status = updateInfo.newStatus;
-  }
-
-  constructor(private serverService: ServerService) {}
-
-  ngOnInit() {
-    this.serverElements = this.serverService.serverElements;
-  }
+  accounts: {name: string, status: string}[] = [];
 
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
+
+  constructor(private serverService: ServerService, private accountService: AccountService) {}
+
+  onStatusChanged(updateInfo: { id: number; newStatus: string }) {
+    this.accountService.updateStatus(updateInfo);
+  }
+
+  ngOnInit() {
+    this.serverElements = this.serverService.serverElements;
+    this.accounts = this.accountService.accounts;
+  }
 
   onChange() {
     this.serverElements[0].name = "Satanas do caralho";
