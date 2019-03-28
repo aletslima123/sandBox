@@ -13,6 +13,7 @@ import { AccountComponent } from "./account/account.component";
 import { NewAccountComponent } from "./new-account/new-account.component";
 import { BetaHighlightDirective } from "./directives/beta-highlight.directive";
 import { ServerService } from "./server.service";
+import { LoggingService } from "./logging.service";
 import { AccountService } from "./services/account.service";
 
 @NgModule({
@@ -28,7 +29,7 @@ import { AccountService } from "./services/account.service";
     BetaHighlightDirective
   ],
   imports: [BrowserModule, FormsModule, HttpModule],
-  providers: [ServerService, AccountService],
+  providers: [ServerService, LoggingService, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

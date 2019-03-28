@@ -9,15 +9,18 @@ import { AccountService } from "./services/account.service";
 export class AppComponent implements OnInit {
   serverElements: { type: string; name: string; content: string }[] = [];
 
-  accounts: {name: string, status: string}[] = [];
+  accounts: { name: string; status: string }[] = [];
 
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
 
-  constructor(private serverService: ServerService, private accountService: AccountService) {}
+  constructor(
+    private serverService: ServerService,
+    private accountService: AccountService
+  ) {}
 
-  onStatusChanged(updateInfo: { id: number; newStatus: string }) {
-    this.accountService.updateStatus(updateInfo);
+  onStatusChanged(id: number, newStatus: string) {
+    this.accountService.updateStatus(id, newStatus);
   }
 
   ngOnInit() {
