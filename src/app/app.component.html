@@ -25,12 +25,16 @@
 
   <app-game-conrtol (intervalFired)="onIntervalFired($event)"></app-game-conrtol>
 
-
-
-  <app-odd *ngFor="let oddNumber of oddNumbers"
+  <div>
+    <h2>Odd numbers</h2>
+    <app-odd *ngFor="let oddNumber of oddNumbers"
     [number]="oddNumber"></app-odd>
+  </div>
 
-  <app-even *ngFor="let evenNumber of evenNumbers"
+  <div>
+    <h2>Even numbers</h2>
+    <app-even *ngFor="let evenNumber of evenNumbers"
     [number]="evenNumber"></app-even>
+  </div>
 
 </div>
