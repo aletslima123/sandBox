@@ -1,27 +1,28 @@
 <div class="container">
-  <!-- <app-cockpit
-    (srvCreated)="onServerAdded($event)"
-    (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
-  <hr>
+  <!-- <app-cockpit></app-cockpit>
+  <hr />
   <div class="row">
     <div class="col-xs-12">
-
       <button class="btn btn-primary" (click)="onChange()">Change</button>
 
       <button class="btn btn-danger" (click)="onDestroy()">Destroy</button>
 
-      <app-server-element *ngFor="let serverElement of serverElements"
+      <app-server-element
+        *ngFor="let serverElement of serverElements"
         [srvElement]="serverElement"
-        [name]="serverElement.name">
-
+        [name]="serverElement.name"
+      >
         <p #contentParagraph>
-          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
-          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
+            serverElement.content
+          }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{
+            serverElement.content
+          }}</em>
         </p>
-
       </app-server-element>
     </div>
-  </div> -->
+  </div>
 
   <app-game-conrtol (intervalFired)="onIntervalFired($event)"></app-game-conrtol>
 
@@ -35,6 +36,15 @@
     <h2>Even numbers</h2>
     <app-even *ngFor="let evenNumber of evenNumbers"
     [number]="evenNumber"></app-even>
-  </div>
+  </div> -->
+
+  <app-new-account (accountAdded)="onAccountAdded($event)"></app-new-account>
+  <hr />
+  <app-account
+    *ngFor="let acc of accounts; let i = index"
+    [account]="acc"
+    [id]="i"
+    (statusChanged)="onStatusChanged($event)"
+  ></app-account>
 
 </div>
