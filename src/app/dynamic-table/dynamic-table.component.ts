@@ -8,9 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class DynamicTableComponent implements OnInit {
   @Input() elementData: Object[];
-  @Input() displayedColumns: string[];
-  columnsToDisplay: string[];
+  @Input() displayedColumns: String[];
+  @Input() customHeading: String[] = [];
+  columnsToDisplay: String[];
   data: Object[];
+
 
 
   constructor() { }
