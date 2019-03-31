@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ServerService } from "./server.service";
 import { AccountService } from "./services/account.service";
+import { TableService } from "./services/table.service";
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -11,12 +13,15 @@ export class AppComponent implements OnInit {
 
   accounts: { name: string; status: string }[] = [];
 
+  tableItems: Object[];
+
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
 
   constructor(
     private serverService: ServerService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private tableService: TableService
   ) {}
 
   onStatusChanged(id: number, newStatus: string) {
@@ -26,6 +31,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.serverElements = this.serverService.serverElements;
     this.accounts = this.accountService.accounts;
+    this.tableItems = this.tableService.items;
   }
 
   onChange() {

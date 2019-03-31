@@ -5,6 +5,15 @@ import { HttpModule } from "@angular/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material';
 
+// Services
+
+import { ServerService } from "./server.service";
+import { LoggingService } from "./logging.service";
+import { AccountService } from "./services/account.service";
+import { TableService } from "./services/table.service";
+
+// Components
+
 import { AppComponent } from "./app.component";
 import { CockpitComponent } from "./cockpit/cockpit.component";
 import { ServerElementComponent } from "./server-element/server-element.component";
@@ -14,9 +23,6 @@ import { EvenComponent } from "./even/even.component";
 import { AccountComponent } from "./account/account.component";
 import { NewAccountComponent } from "./new-account/new-account.component";
 import { BetaHighlightDirective } from "./directives/beta-highlight.directive";
-import { ServerService } from "./server.service";
-import { LoggingService } from "./logging.service";
-import { AccountService } from "./services/account.service";
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 
 @NgModule({
@@ -33,7 +39,7 @@ import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
     DynamicTableComponent
   ],
   imports: [BrowserModule, FormsModule, HttpModule, BrowserAnimationsModule, MatTableModule],
-  providers: [ServerService, LoggingService, AccountService],
+  providers: [ServerService, LoggingService, AccountService, TableService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
