@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   accounts: { name: string; status: string }[] = [];
 
   tableItems: Object[];
+  tableColumns: String[];
 
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
     this.serverElements = this.serverService.serverElements;
     this.accounts = this.accountService.accounts;
     this.tableItems = this.tableService.items;
+    this.tableColumns = ['name', 'weight', 'symbol', 'position', 'teste', 'cor'];
   }
 
   onChange() {

@@ -8,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class DynamicTableComponent implements OnInit {
   @Input() elementData: Object[];
-  @Input() displayedColumns: string[] = ['name', 'weight', 'symbol', 'position'];
-  columnsToDisplay: string[] = this.displayedColumns.slice();
+  @Input() displayedColumns: string[];
+  columnsToDisplay: string[];
   data: Object[];
 
 
@@ -17,5 +17,6 @@ export class DynamicTableComponent implements OnInit {
 
   ngOnInit() {
     this.data = this.elementData;
+    this.columnsToDisplay = this.displayedColumns.slice();
   }
 }
