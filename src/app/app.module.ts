@@ -2,6 +2,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material';
 
 import { AppComponent } from "./app.component";
 import { CockpitComponent } from "./cockpit/cockpit.component";
@@ -15,6 +17,7 @@ import { BetaHighlightDirective } from "./directives/beta-highlight.directive";
 import { ServerService } from "./server.service";
 import { LoggingService } from "./logging.service";
 import { AccountService } from "./services/account.service";
+import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,10 @@ import { AccountService } from "./services/account.service";
     EvenComponent,
     AccountComponent,
     NewAccountComponent,
-    BetaHighlightDirective
+    BetaHighlightDirective,
+    DynamicTableComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpModule],
+  imports: [BrowserModule, FormsModule, HttpModule, BrowserAnimationsModule, MatTableModule],
   providers: [ServerService, LoggingService, AccountService],
   bootstrap: [AppComponent]
 })
