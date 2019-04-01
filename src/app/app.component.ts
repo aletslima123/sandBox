@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     this.serverElements = this.serverService.serverElements;
     this.accounts = this.accountService.accounts;
     this.tableItems = this.tableService.items;
-    this.headingNames = ['Name', 'Weight', 'Symbol', 'Position', 'Teste', 'Cor'];
+    this.headingNames = ['Nome', 'Peso', 'Símbolo', 'Posição', 'Teste', 'Cor'];
   }
 
   onChange() {
