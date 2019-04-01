@@ -13,8 +13,6 @@ export class DynamicTableComponent implements OnInit {
   columnsToDisplay: String[];
   data: Object[];
 
-
-
   constructor() { }
 
   ngOnInit() {
