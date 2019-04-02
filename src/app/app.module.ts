@@ -24,6 +24,15 @@ import { AccountComponent } from "./account/account.component";
 import { NewAccountComponent } from "./new-account/new-account.component";
 import { BetaHighlightDirective } from "./directives/beta-highlight.directive";
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { ServersComponent } from './servers/servers.component';
+import { UserComponent } from './users/user/user.component';
+import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { ServerComponent } from './servers/server/server.component';
+import { ServersService } from './servers/servers.service';
+
+
 
 @NgModule({
   declarations: [
@@ -36,10 +45,16 @@ import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
     AccountComponent,
     NewAccountComponent,
     BetaHighlightDirective,
-    DynamicTableComponent
+    DynamicTableComponent,
+    HomeComponent,
+    UsersComponent,
+    ServersComponent,
+    UserComponent,
+    EditServerComponent,
+    ServerComponent
   ],
   imports: [BrowserModule, FormsModule, HttpModule, BrowserAnimationsModule, MatTableModule],
-  providers: [ServerService, LoggingService, AccountService, TableService],
+  providers: [ServerService, LoggingService, AccountService, TableService, ServersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
