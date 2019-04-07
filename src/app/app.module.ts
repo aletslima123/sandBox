@@ -33,6 +33,8 @@ import { ServerComponent } from "./servers/server/server.component";
 import { ServersService } from "./servers/servers.service";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { AuthService } from "./auth.service";
+import { AuthGuard } from "./auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { AppRoutingModule } from "./app-routing.module";
     LoggingService,
     AccountService,
     TableService,
-    ServersService
+    ServersService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
