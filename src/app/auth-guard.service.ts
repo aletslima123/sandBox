@@ -1,8 +1,8 @@
-import { CanActivate } from "@angular/router/src/utils/preactivation";
 import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
+  CanActivate,
   CanActivateChild
 } from "@angular/router";
 import { Observable } from "rxjs/Observable";
